@@ -1,0 +1,60 @@
+﻿@model OkulİdareSistemi.Models.OgrenciDers
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+
+
+@using (Html.BeginForm("OgrenciDersAdd", "Home", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                <h3 style="text-align:center"><b>YENİ DERS ATAMASI</b></h3>
+            </div>
+            <div>
+                <div>
+                    <form action="#">
+                        <div style="background-color:darkred; text-align:center; align-items:center;">
+                            <h3 style="color: white;">@ViewBag.Message</h3>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Ders Adı
+                                </label>
+                            </div>
+                            <div>
+                                <div class="with-icon">
+                                    @Html.DropDownList("DDLDersler", ViewBag.DDLDersler as SelectList,
+                                    "---Ders Seç---",
+                                    new { @class = "form-control  form-control-lg text-center" })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Öğrenci Seçin
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.DropDownList("DDLOgrenciler", ViewBag.DDLOgrenciler as SelectList,
+                                    "---Öğrenci Seç---",
+                                    new { @class = "form-control  form-control-lg text-center" })
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div style="text-align:center">
+                            <input type="submit" value="Ekle" class="btn btn-primary btn-default btn-squared" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+

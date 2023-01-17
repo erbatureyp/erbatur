@@ -1,0 +1,72 @@
+﻿@model OkulİdareSistemi.Models.Ders
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+
+
+@using (Html.BeginForm("DersAdd", "Home", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                <h3 style="text-align:center"><b>YENİ DERS EKLEME</b></h3>
+            </div>
+            <div>
+                <br />
+                <div>
+                    <form action="#">
+                        <div style="background-color:darkred; text-align:center; align-items:center;">
+                            <h3 style="color: white;">@ViewBag.Message</h3>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Lütfen Ders Adını Giriniz
+                                </label>
+                            </div>
+                            <div>
+                                <div class="with-icon">
+                                    @Html.EditorFor(model => model.DersAdi, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Ders Adini Giriniz" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Lütfen Dersin Kredisini Giriniz
+                                </label>
+                            </div>
+                            <div>
+                                <div class="with-icon">
+                                    @Html.EditorFor(model => model.Kredisi, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Dersin Kredisini Giriniz" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center" style="text-align:center">
+                                    Dersin Öğretmeni
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.DropDownList("DDLOgretmenler", ViewBag.DDLOgretmenler as SelectList,
+                                    "---Öğretmen Seç---",
+                                    new { @class = "form-control  form-control-lg text-center" })
+                                </div>
+                            </div> 
+                            <br />
+                            <br />
+                        </div>
+                        <div  style="text-align:center">
+                            <input type="submit" value="Ekle" class="btn btn-primary btn-default btn-squared" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+

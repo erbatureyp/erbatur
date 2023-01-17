@@ -1,0 +1,56 @@
+﻿@model OkulİdareSistemi.Models.OgrenciDers
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+
+
+@using (Html.BeginForm("OgrenciDersEdit", "Home", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                <h3><b>ATAMA GÜNCELLEME</b></h3>
+            </div>
+            <div>
+                <div>
+                    <form action="#">
+                        <div style="background-color:darkred; text-align:center; align-items:center;">
+                            <h3 style="color: white;">@ViewBag.Message</h3>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Ders
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.DropDownListFor(model => model.DersId, (List<SelectListItem>)ViewBag.DDLDersler, new { @class = "form-control  form-control-lg text-center" })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Öğrenci
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.DropDownListFor(model => model.OgrenciId, (List<SelectListItem>)ViewBag.DDLOgrenciler, new { @class = "form-control  form-control-lg text-center" })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="submit" value="Güncelle" class="btn btn-primary btn-default btn-squared" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

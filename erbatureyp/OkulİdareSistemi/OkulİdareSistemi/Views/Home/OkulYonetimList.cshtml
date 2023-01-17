@@ -1,0 +1,87 @@
+﻿@model IEnumerable<OkulİdareSistemi.Models.OkulYonetim>
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+<a href="@Url.Action("OkulYonetimAdd","Home")" class="btn btn-outline-danger">
+    <i></i>Yeni Personel Ekle
+</a>
+<div>
+    <div>
+        <div>
+            <div>
+                <div id="filter-form-container"></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="padding:10px;color:red">
+                                <span>PersonelId</span>
+                            </th>
+                            <th style="padding:10px;color:red">
+                                <span>Adı Soyadı</span>
+                            </th>
+                            <th style="padding:10px;color:red">
+                                <span>Görevi</span>
+                            </th>
+                            <th style="padding:10px;color:red">
+                                <span>Yönetim Tipi</span>
+                            </th>
+                            <th style="padding:10px;color:red">
+                                <span>Action</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count() > 0)
+                        {
+                            foreach (var personel in Model)
+                            {
+                                <tr>
+                                    <td style="padding:10px">
+                                        <div class="userDatatable-content" style="align-items:center">
+                                            @personel.OkulYonetimId
+                                        </div>
+                                    </td>
+                                    <td style="padding:10px">
+                                        <div class="userDatatable-content">
+                                            @personel.AdSoyad
+                                        </div>
+                                    </td>
+                                    <td style="padding:10px">
+                                        <div class="userDatatable-content">
+                                            @personel.Gorevi
+                                        </div>
+                                    </td>
+                                    <td style="padding:10px">
+                                        <div class="userDatatable-content">
+                                            @personel.YonetimTip
+                                        </div>
+                                    </td>
+                                    <td style="padding-right:10px">
+                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                            <li>
+                                                <a href="@Url.Action("OkulYonetimEdit","Home", new {  id=personel.OkulYonetimId  })" class="edit">
+                                                    <span data-feather="edit"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("OkulYonetimRemove","Home", new {  id=personel.OkulYonetimId  })" class="remove">
+                                                    <span data-feather="trash-2"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="3">&nbsp;</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@model OkulİdareSistemi.Models.OkulYonetim
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+
+
+@using (Html.BeginForm("OkulYonetimEdit", "Home", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                <h3 style="text-align:center"><b>PERSONEL GÜNCELLEME</b></h3>
+            </div>
+            <div>
+                <div>
+                    <form action="#">
+                        <div>
+                            <h3>@ViewBag.Message</h3>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Ad Soyad
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.EditorFor(model => model.AdSoyad, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Ad/Soyadınız" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Görevinizi Giriniz
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.EditorFor(model => model.Gorevi, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Görevinizi Giriniz" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Yönetim Tipi
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    <select name="YonetimTip" id="YonetimTip">
+                                        <option>Öğretmen</option>
+                                        <option>İdare</option>
+                                        <option>Öğrenci İşleri</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div style="text-align:center" >
+                            <input type="submit" value="Güncelle" class="btn btn-primary btn-default btn-squared" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

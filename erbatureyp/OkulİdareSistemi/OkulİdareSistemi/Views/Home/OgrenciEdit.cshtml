@@ -1,0 +1,92 @@
+﻿@model OkulİdareSistemi.Models.Ogrenci
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+
+@using (Html.BeginForm("OgrenciEdit", "Home", FormMethod.Post))
+{
+    <div>
+        <div>
+            <div>
+                <h3 style="text-align:center"><b>ÖĞRENCİ GÜNCELLEME</b></h3>
+            </div>
+            <div>
+                <div>
+                    <form action="#">
+                        <div>
+                            <h3>@ViewBag.Message</h3>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Adınız Soyadınız
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.EditorFor(model => model.AdSoyad, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Ad/Soyad Giriniz" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Kayıt Tarihi
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.EditorFor(model => model.KayitTarihi, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Gün/Ay/Yıl" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon" class=" col-form-label color-dark fs-14 fw-500 align-center">
+                                    Öğrenci No
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.EditorFor(model => model.OgrenciNo, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Ogrenci Numarası" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Doğum Tarihi
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.EditorFor(model => model.DogumTarihi, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "inputEmailIcon", placeholder = "Gün/Ay/Yıl" } })
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="inputEmailIcon">
+                                    Bölümü
+                                </label>
+                            </div>
+                            <div>
+                                <div>
+                                    @Html.EditorFor(model => model.Bolum, new { htmlAttributes = new { @class = "form-control  ih-medium ip-gray radius-xs b-light", id = "sinif", placeholder = "Bölümünüzü Giriniz" } })
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <br />
+                        <div style="text-align:center">
+                            <input type="submit" value="Ekle" class="btn btn-primary btn-default btn-squared" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+

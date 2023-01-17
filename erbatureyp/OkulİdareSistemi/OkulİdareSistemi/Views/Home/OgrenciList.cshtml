@@ -1,0 +1,80 @@
+﻿@model IEnumerable<OkulİdareSistemi.Models.Ogrenci>
+@{
+    Layout = "~/Views/Shared/Sidebar.cshtml";
+}
+<a href="@Url.Action("OgrenciAdd","Home")" class="btn btn-outline-danger">
+    <i></i>Yeni Öğrenci Ekle
+</a>
+
+<table>
+    <thead>
+        <tr>
+            <th style="padding:10px;color:red">
+                <span>ÖğrenciId</span>
+            </th>
+            <th style="padding:10px;color:red">
+                <span>Öğrenci No</span>
+            </th>
+            <th style="padding:10px;color:red">
+                <span>Adı Soyadı</span>
+            </th>
+            <th style="padding:10px;color:red">
+                <span>Bölümü</span>
+            </th>
+            <th style="padding:10px;color:red">
+                <span>Action</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() > 0)
+        {
+            foreach (var ogrenci in Model)
+            {
+                <tr>
+                    <td>
+                        <div style="padding:10px">
+                            @ogrenci.OgrenciId
+                        </div>
+                    </td>
+                    <td>
+                        <div style="padding:10px">
+                            @ogrenci.OgrenciNo
+                        </div>
+                    </td>
+                    <td>
+                        <div style="padding:10px">
+                            @ogrenci.AdSoyad
+                        </div>
+                    </td>
+                    <td>
+                        <div style="padding:10px">
+                            @ogrenci.Bolum
+                        </div>
+                    </td>
+                    <td style="padding:10px">
+                        <ul>
+                            <li>
+                                <a href="@Url.Action("OgrenciEdit","Home", new {  id=ogrenci.OgrenciId  })">
+                                    <span data-feather="edit"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("OgrenciRemove","Home", new {  id=ogrenci.OgrenciId  })" class="remove">
+                                    <span data-feather="trash-2"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
